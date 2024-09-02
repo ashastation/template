@@ -1,4 +1,7 @@
 <script>
+	export const ssr = false;
+	export const prerender = false;
+
 	import '../app.postcss';
 	import { AppShell } from '@skeletonlabs/skeleton';
 

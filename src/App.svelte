@@ -1,15 +1,39 @@
 <script>
 	// @ts-nocheck
+	export const ssr = false;
+	export const prerender = false;
 
-	import ListInfoKeyValue from '../lib/components/ListInfoKeyValue.svelte';
-	import PingAgent from '../lib/components/PingAgent.svelte';
-	import WebSocketData from '../lib/components/WebSocketData.svelte';
-	import WalletConnect from '../lib/modules/WalletConnect.svelte';
-	import GrafanaDashboard from '../lib/components/GrafanaDashboard.svelte';
+	import './app.postcss';
+	import { AppShell } from '@skeletonlabs/skeleton';
+
+	// Highlight JS
+	import hljs from 'highlight.js/lib/core';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import xml from 'highlight.js/lib/languages/xml'; // for HTML
+	import css from 'highlight.js/lib/languages/css';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+
+	// Floating UI for Popups
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	import ListInfoKeyValue from './lib/components/ListInfoKeyValue.svelte';
+	import PingAgent from './lib/components/PingAgent.svelte';
+	import WebSocketData from './lib/components/WebSocketData.svelte';
+	import WalletConnect from './lib/modules/WalletConnect.svelte';
+	import GrafanaDashboard from './lib/components/GrafanaDashboard.svelte';
 	import Grid from 'svelte-grid';
 	import gridHelp from 'svelte-grid/build/helper/index.mjs';
 	import { popup } from '@skeletonlabs/skeleton';
-	import { stringify } from 'postcss';
+
+	hljs.registerLanguage('xml', xml); // for HTML
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	storeHighlightJs.set(hljs);
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	const popupFeatured = {
 		event: 'hover',
@@ -108,20 +132,22 @@
 	let adjustAfterRemove = false;
 </script>
 
-<div>
-	<Grid bind:items rowHeight={100} let:item let:dataItem {cols}>
-		{#if dataItem.canRemove}
-			<span
-				on:pointerdown={(e) => e.stopPropagation()}
-				on:click={() => remove(dataItem)}
-				class="remove"
-			>
-				✕
-			</span>
-		{/if}
-		<svelte:component this={dataItem.com}></svelte:component>
-	</Grid>
-</div>
+<AppShell>
+	<div>
+		<Grid bind:items rowHeight={100} let:item let:dataItem {cols}>
+			{#if dataItem.canRemove}
+				<span
+					on:pointerdown={(e) => e.stopPropagation()}
+					on:click={() => remove(dataItem)}
+					class="remove"
+				>
+					✕
+				</span>
+			{/if}
+			<svelte:component this={dataItem.com}></svelte:component>
+		</Grid>
+	</div>
+</AppShell>
 
 <style>
 	.remove {
