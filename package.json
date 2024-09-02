@@ -39,11 +39,13 @@
   "dependencies": {
     "@14islands/r3f-scroll-rig": "^8.13.1",
     "@floating-ui/dom": "1.6.3",
+    "@sveltejs/adapter-static": "^3.0.4",
     "@wagmi/core": "^1.4.2",
     "@web3modal/wagmi": "^3.0.0-beta.4",
     "ethers": "^6.11.1",
     "highlight.js": "11.9.0",
-    "svelte-grid-extended": "^1.1.4"
+    "svelte-grid-extended": "^1.1.4",
+    "vitest": "^2.0.5"
   },
   "overrides": {
     "@parcel/watcher": "~2.1.0"
