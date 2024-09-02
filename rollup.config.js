@@ -17,7 +17,7 @@ export default {
     input: 'src/main.js',
     output: {
         file: './public/bundle.js',
-        format: 'cjs',
+        format: 'es',
         sourcemap: true,
         inlineDynamicImports: true,
     },

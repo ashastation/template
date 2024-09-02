@@ -22,8 +22,8 @@
 	import ListInfoKeyValue from './lib/components/ListInfoKeyValue.svelte';
 	import PingAgent from './lib/components/PingAgent.svelte';
 	import WebSocketData from './lib/components/WebSocketData.svelte';
-	import WalletConnect from './lib/modules/WalletConnect.svelte';
 	import GrafanaDashboard from './lib/components/GrafanaDashboard.svelte';
+	import WalletConnectEther from './lib/components/WalletConnectEther.svelte';
 	import Grid from 'svelte-grid';
 	import gridHelp from 'svelte-grid/build/helper/index.mjs';
 	import { popup } from '@skeletonlabs/skeleton';
@@ -47,7 +47,7 @@
 		GrafanaDashboard,
 		WebSocketData,
 		PingAgent,
-		WalletConnect
+		WalletConnectEther
 	};
 
 	// TODO: this data needs to be passed when the front end spinned to make the layout customizable
@@ -103,7 +103,7 @@
 				w: 2,
 				h: 2
 			},
-			com: 'WalletConnect',
+			com: 'WalletConnectEther',
 			fixed: true,
 			canRemove: false
 		}
