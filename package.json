@@ -48,8 +48,6 @@
     "@rollup/plugin-replace": "^5.0.7",
     "@sveltejs/adapter-static": "^3.0.4",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
-    "@wagmi/core": "^1.4.2",
-    "@web3modal/wagmi": "^3.0.0-beta.4",
     "ethers": "^6.11.1",
     "ethers-svelte": "^3.2.1",
     "highlight.js": "11.9.0",

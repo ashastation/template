@@ -2,7 +2,7 @@
 	// @ts-nocheck
 
 	import { onMount } from 'svelte';
-
+	export let url;
 	export let AGENT_WS = 'http://localhost:5556';
 
 	let data = [];
@@ -21,6 +21,7 @@
 			const newItem = { text: message.data, expanded: isExpanded };
 			data = [newItem, ...data];
 			applyFilter();
+			console.log('url', url);
 		};
 
 		ws.onclose = () => {
@@ -122,6 +123,7 @@
 		box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
 		max-height: 90vh;
 		overflow-y: auto;
+		height: 100%;
 	}
 
 	ul {
@@ -188,6 +190,7 @@
 		margin-bottom: 20px;
 		background: #1d2425;
 		color: white;
+		flex-wrap: wrap;
 	}
 
 	.btn-group button {
@@ -228,5 +231,9 @@
 	.expand-button:hover {
 		background-color: #00ff41;
 		color: #0a0a0a;
+	}
+
+	main {
+		height: 100%;
 	}
 </style>

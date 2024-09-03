@@ -17,7 +17,14 @@
 </script>
 
 {#if !web3Props?.signer}
-	<button class="btn" on:click={connectWallet}>Connect Wallet</button>
+	<button class="btn connect" on:click={connectWallet}>Connect Wallet</button>
 {:else}
 	<div>Connected to: {web3Props.signer.address.substr(0, 6)}..</div>
 {/if}
+
+<style>
+	.connect {
+		border: 0.5px solid white;
+		border-radius: 6px;
+	}
+</style>

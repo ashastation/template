@@ -49,7 +49,6 @@
 		border-radius: 10px;
 		padding: 20px;
 		box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
-		max-width: 600px;
 		width: 100%;
 		height: 100%;
 	}
